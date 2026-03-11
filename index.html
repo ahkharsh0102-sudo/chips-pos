@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Chips POS</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>🍟 GLOBAL FAMOUS BYOB CHIPS</h1>
+
+<div class="summary">
+
+<div class="card">
+<h3>Today's Sales</h3>
+<p>₹{{today}}</p>
+</div>
+
+<div class="card">
+<h3>Total Revenue</h3>
+<p>₹{{revenue}}</p>
+</div>
+
+<a class="excel-btn" href="/export">Download Excel</a>
+
+</div>
+
+
+<form method="POST">
+
+<label>Date</label>
+<input type="date" name="date" value="{{today_date}}" required>
+
+<label>Item</label>
+
+<label>Item</label>
+
+<select name="item">
+
+<option value="Mexican Loaded Chips">
+Mexican Loaded Chips (₹50 / ₹70 / ₹90)
+</option>
+
+<option value="Tandoori Loaded Chips">
+Tandoori Loaded Chips (₹50 / ₹70 / ₹90)
+</option>
+
+<option value="Cheese Volcano">
+Cheese Volcano (₹70 / ₹90 / ₹120)
+</option>
+
+<option value="Fusion Fire">
+Fusion Fire (₹60 / ₹80 / ₹100)
+</option>
+
+</select>
+
+<label>Size</label>
+
+<select name="size" id="size">
+<option value="Small">Small</option>
+<option value="Medium">Medium</option>
+<option value="Large">Large</option>
+</select>
+
+
+<label>Price</label>
+<input type="number" name="price" id="price" readonly>
+
+</select>
+
+<label>Quantity</label>
+<input type="number" name="quantity" required>
+
+<button type="submit">Add Sale</button>
+
+</form>
+
+
+<h2>Sales Records</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Date</th>
+<th>Item</th>
+<th>Size</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+<th>Delete</th>
+</tr>
+
+{% for row in data %}
+
+<tr>
+
+<td>{{row[0]}}</td>
+<td>{{row[1]}}</td>
+<td>{{row[2]}}</td>
+<td>{{row[3]}}</td>
+<td>{{row[4]}}</td>
+<td>{{row[5]}}</td>
+<td>{{row[6]}}</td>
+
+<td>
+<a class="delete-btn" href="/delete/{{row[0]}}">Delete</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+<script>
+
+const prices = {
+
+"Mexican Loaded Chips":{
+Small:50,
+Medium:70,
+Large:90
+},
+
+"Tandoori Loaded Chips":{
+Small:50,
+Medium:70,
+Large:90
+},
+
+"Cheese Volcano":{
+Small:70,
+Medium:90,
+Large:120
+},
+
+"Fusion Fire":{
+Small:60,
+Medium:80,
+Large:100
+}
+
+};
+
+function updatePrice(){
+
+let item = document.querySelector("select[name='item']").value
+let size = document.getElementById("size").value
+
+let price = prices[item][size]
+
+document.getElementById("price").value = price
+
+}
+
+document.querySelector("select[name='item']").addEventListener("change",updatePrice)
+document.getElementById("size").addEventListener("change",updatePrice)
+
+window.onload = updatePrice
+
+</script>
+</body>
+</html>

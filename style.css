@@ -1,0 +1,139 @@
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f6fb;
+margin:0;
+padding:30px;
+color:#333;
+}
+
+h1{
+text-align:center;
+font-weight:600;
+color:#ff6b00;
+margin-bottom:30px;
+}
+
+/* summary cards */
+
+.summary{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:20px 30px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+text-align:center;
+min-width:180px;
+}
+
+.card h3{
+margin:0;
+font-size:16px;
+color:#777;
+}
+
+.card p{
+font-size:24px;
+font-weight:600;
+margin-top:5px;
+}
+
+/* excel button */
+
+.excel-btn{
+background:#2ecc71;
+color:white;
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:500;
+}
+
+.excel-btn:hover{
+background:#27ae60;
+}
+
+/* form */
+
+form{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+width:420px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+label{
+font-size:14px;
+font-weight:500;
+}
+
+input,select{
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+font-family:'Poppins';
+}
+
+button{
+background:#ff6b00;
+color:white;
+padding:12px;
+border:none;
+border-radius:8px;
+font-size:15px;
+font-weight:500;
+cursor:pointer;
+}
+
+button:hover{
+background:#e85c00;
+}
+
+/* table */
+
+table{
+width:100%;
+margin-top:35px;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+
+th{
+background:#ff6b00;
+color:white;
+padding:12px;
+font-weight:500;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+.delete-btn{
+background:#e74c3c;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+text-decoration:none;
+font-size:13px;
+}
+
+.delete-btn:hover{
+background:#c0392b;
+}
